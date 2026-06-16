@@ -1,0 +1,227 @@
+{
+  "businesses/demo-clothing-store": {
+    "name": "StyleHub Clothing",
+    "type": "Clothing Store",
+    "whatsappNumber": "+94771234567",
+    "createdAt": "2026-06-16T11:58:48.554Z",
+    "subscription": {
+      "plan": "business",
+      "status": "active",
+      "lastPayment": "2026-06-16T11:58:48.555Z"
+    },
+    "welcomeMessage": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "returnPolicy": "Returns or exchanges are allowed within 7 days of purchase. Items must be in original condition with tags.",
+    "deliveryFee": 350,
+    "faqs": [
+      {
+        "question": "Do you deliver island-wide?",
+        "answer": "Yes, we deliver to any address in Sri Lanka within 2-4 working days."
+      },
+      {
+        "question": "What are the payment options?",
+        "answer": "We accept cash on delivery (COD), card payments via PayHere, and bank transfers."
+      },
+      {
+        "question": "Where is your shop located?",
+        "answer": "We are an online-only store based in Colombo, Sri Lanka."
+      }
+    ],
+    "id": "demo-clothing-store"
+  },
+  "businesses/demo-clothing-store/products/w1b6ol9hnwh": {
+    "name": "Slim Fit Cotton Shirt",
+    "price": 3450,
+    "stock": 15,
+    "category": "Shirts",
+    "description": "Premium 100% cotton slim fit formal shirt in Black, White, and Navy Blue. Sizes M, L, XL.",
+    "id": "w1b6ol9hnwh"
+  },
+  "businesses/demo-clothing-store/products/nw7344yllwk": {
+    "name": "Linen Casual Shirt",
+    "price": 2900,
+    "stock": 8,
+    "category": "Shirts",
+    "description": "Breathable linen casual shirt perfect for warm weather. Available in Pastel Pink, Light Blue, and White.",
+    "id": "nw7344yllwk"
+  },
+  "businesses/demo-clothing-store/products/qrmpk2hh2i8": {
+    "name": "Floral Summer Dress",
+    "price": 4200,
+    "stock": 12,
+    "category": "Dresses",
+    "description": "Flowy floral printed dress with adjustable waist belt. Sizes S, M, L.",
+    "id": "qrmpk2hh2i8"
+  },
+  "businesses/demo-clothing-store/products/66zq012quu6": {
+    "name": "Denim Jacket Classic",
+    "price": 5900,
+    "stock": 5,
+    "category": "Jackets",
+    "description": "Unisex distressed blue denim jacket with copper buttons. Heavyweight premium denim.",
+    "id": "66zq012quu6"
+  },
+  "businesses/demo-clothing-store/products/1wm0ezcdxv8": {
+    "name": "Chino Trousers",
+    "price": 3800,
+    "stock": 0,
+    "category": "Trousers",
+    "description": "Stretch chino trousers in Khaki and Charcoal Grey. Slim fit.",
+    "id": "1wm0ezcdxv8"
+  },
+  "businesses/demo-clothing-store/customers/94772223333": {
+    "id": "94772223333",
+    "name": "Lahiru Mudith",
+    "phone": "94772223333",
+    "language": "Singlish",
+    "tags": [
+      "VIP Customer",
+      "Frequent Buyer"
+    ],
+    "totalOrders": 3,
+    "totalSpent": 10850
+  },
+  "businesses/demo-clothing-store/customers/94711112222": {
+    "id": "94711112222",
+    "name": "Nimal Silva",
+    "phone": "94711112222",
+    "language": "Sinhala",
+    "tags": [
+      "New Customer"
+    ],
+    "totalOrders": 1,
+    "totalSpent": 3450
+  },
+  "businesses/demo-clothing-store/customers/94755556666": {
+    "id": "94755556666",
+    "name": "Sanduni Perera",
+    "phone": "94755556666",
+    "language": "English",
+    "tags": [
+      "High Value Customer"
+    ],
+    "totalOrders": 2,
+    "totalSpent": 15500
+  },
+  "businesses/demo-clothing-store/conversations/94772223333": {
+    "customerId": "94772223333",
+    "lastMessage": "Ow ape langa \"Slim Fit Cotton Shirt\" black color L size thiyenawa. Eke price eka LKR 3450. Order ekak danna onada?",
+    "lastMessageTime": "2026-06-16T10:58:51.617Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94772223333"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/dhxr7h687j7": {
+    "role": "user",
+    "content": "Hi, product details kiyanna puluwanda?",
+    "timestamp": "2026-06-16T09:58:48.617Z",
+    "type": "text",
+    "id": "dhxr7h687j7"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/bhe2o23vq7d": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. Ape active items slim fit shirt (LKR 3450), linen shirt (LKR 2900) and floral dress (LKR 4200). Mona wageda balanne?",
+    "timestamp": "2026-06-16T09:58:53.617Z",
+    "type": "text",
+    "id": "bhe2o23vq7d"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/jzo8gtej5hh": {
+    "role": "user",
+    "content": "black shirt thiyeda size L?",
+    "timestamp": "2026-06-16T10:58:48.617Z",
+    "type": "text",
+    "id": "jzo8gtej5hh"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/yg54zhlv21s": {
+    "role": "model",
+    "content": "Ow ape langa \"Slim Fit Cotton Shirt\" black color L size thiyenawa. Eke price eka LKR 3450. Order ekak danna onada?",
+    "timestamp": "2026-06-16T10:58:51.617Z",
+    "type": "text",
+    "id": "yg54zhlv21s"
+  },
+  "businesses/demo-clothing-store/conversations/94711112222": {
+    "customerId": "94711112222",
+    "lastMessage": "අපගේ delivery ගාස්තුව රු. 350 කි. දිවයින පුරා බෙදාහැරීම් සිදුකරනු ලබයි.",
+    "lastMessageTime": "2026-06-16T06:58:52.617Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94711112222"
+  },
+  "businesses/demo-clothing-store/conversations/94711112222/messages/ga72v858a5": {
+    "role": "user",
+    "content": "ඔයාලගේ delivery fee එක කීයද?",
+    "timestamp": "2026-06-16T06:58:48.617Z",
+    "type": "text",
+    "id": "ga72v858a5"
+  },
+  "businesses/demo-clothing-store/conversations/94711112222/messages/5p8tckzoxxa": {
+    "role": "model",
+    "content": "අපගේ delivery ගාස්තුව රු. 350 කි. දිවයින පුරා බෙදාහැරීම් සිදුකරනු ලබයි.",
+    "timestamp": "2026-06-16T06:58:52.617Z",
+    "type": "text",
+    "id": "5p8tckzoxxa"
+  },
+  "businesses/demo-clothing-store/conversations/94755556666": {
+    "customerId": "94755556666",
+    "lastMessage": "Yes, we have our Denim Jacket Classic in stock for LKR 5900. It comes in a classic distressed blue.",
+    "lastMessageTime": "2026-06-16T01:58:50.617Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94755556666"
+  },
+  "businesses/demo-clothing-store/conversations/94755556666/messages/brve6xx9gr4": {
+    "role": "user",
+    "content": "Do you have denim jackets?",
+    "timestamp": "2026-06-16T01:58:48.617Z",
+    "type": "text",
+    "id": "brve6xx9gr4"
+  },
+  "businesses/demo-clothing-store/conversations/94755556666/messages/a4ir2jej86c": {
+    "role": "model",
+    "content": "Yes, we have our Denim Jacket Classic in stock for LKR 5900. It comes in a classic distressed blue.",
+    "timestamp": "2026-06-16T01:58:50.617Z",
+    "type": "text",
+    "id": "a4ir2jej86c"
+  },
+  "businesses/demo-clothing-store/orders/25ai722ukx9": {
+    "customerId": "94772223333",
+    "items": [
+      {
+        "name": "Slim Fit Cotton Shirt",
+        "price": 3450,
+        "qty": 1
+      }
+    ],
+    "status": "delivered",
+    "total": 3800,
+    "createdAt": "2026-06-14T11:58:48.710Z",
+    "id": "25ai722ukx9"
+  },
+  "businesses/demo-clothing-store/orders/7g4et9acea4": {
+    "customerId": "94755556666",
+    "items": [
+      {
+        "name": "Denim Jacket Classic",
+        "price": 5900,
+        "qty": 2
+      }
+    ],
+    "status": "confirmed",
+    "total": 12150,
+    "createdAt": "2026-06-15T11:58:48.710Z",
+    "id": "7g4et9acea4"
+  },
+  "businesses/demo-clothing-store/orders/vjmz5zpwbdh": {
+    "customerId": "94711112222",
+    "items": [
+      {
+        "name": "Linen Casual Shirt",
+        "price": 2900,
+        "qty": 1
+      }
+    ],
+    "status": "pending",
+    "total": 3250,
+    "createdAt": "2026-06-16T11:58:48.710Z",
+    "id": "vjmz5zpwbdh"
+  }
+}
