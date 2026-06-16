@@ -76,10 +76,11 @@
     "language": "Singlish",
     "tags": [
       "VIP Customer",
-      "Frequent Buyer"
+      "Frequent Buyer",
+      "Slim"
     ],
-    "totalOrders": 3,
-    "totalSpent": 10850
+    "totalOrders": 0,
+    "totalSpent": 0
   },
   "businesses/demo-clothing-store/customers/94711112222": {
     "id": "94711112222",
@@ -105,8 +106,8 @@
   },
   "businesses/demo-clothing-store/conversations/94772223333": {
     "customerId": "94772223333",
-    "lastMessage": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
-    "lastMessageTime": "2026-06-16T12:33:33.503Z",
+    "lastMessage": "sir?",
+    "lastMessageTime": "2026-06-16T13:11:23.851Z",
     "unread": false,
     "aiActive": true,
     "id": "94772223333"
@@ -274,5 +275,40 @@
     "timestamp": "2026-06-16T12:33:33.502Z",
     "type": "text",
     "id": "7gb3081x1yj"
+  },
+  "businesses/demo-clothing-store/orders/gd7vp7so7ob": {
+    "customerId": "94772223333",
+    "items": [
+      {
+        "name": "Slim Fit Cotton Shirt",
+        "price": 3450,
+        "qty": 1
+      }
+    ],
+    "status": "pending",
+    "total": 3800,
+    "createdAt": "2026-06-16T13:11:02.343Z",
+    "id": "gd7vp7so7ob"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/xh7gp985su": {
+    "role": "model",
+    "content": "🛒 *Your Cart is Ready!*\n\n• Slim Fit Cotton Shirt ×1 — LKR 3,450\n🚚 Delivery: LKR 350\n💳 *Total: LKR 3,800*\n\nComplete payment: http://localhost:3000/checkout?order=gd7vp7so7ob&amount=3800&business=demo-clothing-store",
+    "timestamp": "2026-06-16T13:11:02.360Z",
+    "type": "text",
+    "id": "xh7gp985su"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/t4udzpk18j": {
+    "role": "model",
+    "content": "hello sir",
+    "timestamp": "2026-06-16T13:11:10.679Z",
+    "type": "text",
+    "id": "t4udzpk18j"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/ss2q1oo4qtd": {
+    "role": "model",
+    "content": "sir?",
+    "timestamp": "2026-06-16T13:11:23.841Z",
+    "type": "text",
+    "id": "ss2q1oo4qtd"
   }
 }
