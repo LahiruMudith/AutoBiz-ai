@@ -5,9 +5,10 @@
     "whatsappNumber": "+94771234567",
     "createdAt": "2026-06-16T11:58:48.554Z",
     "subscription": {
-      "plan": "business",
+      "plan": "starter",
       "status": "active",
-      "lastPayment": "2026-06-16T11:58:48.555Z"
+      "lastPayment": "2026-06-16T12:34:50.858Z",
+      "orderId": "SUB_demo-clothing-store_1781613286218"
     },
     "welcomeMessage": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
     "returnPolicy": "Returns or exchanges are allowed within 7 days of purchase. Items must be in original condition with tags.",
@@ -104,8 +105,8 @@
   },
   "businesses/demo-clothing-store/conversations/94772223333": {
     "customerId": "94772223333",
-    "lastMessage": "Ow ape langa \"Slim Fit Cotton Shirt\" black color L size thiyenawa. Eke price eka LKR 3450. Order ekak danna onada?",
-    "lastMessageTime": "2026-06-16T10:58:51.617Z",
+    "lastMessage": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "lastMessageTime": "2026-06-16T12:33:33.503Z",
     "unread": false,
     "aiActive": true,
     "id": "94772223333"
@@ -205,7 +206,7 @@
         "qty": 2
       }
     ],
-    "status": "confirmed",
+    "status": "paid",
     "total": 12150,
     "createdAt": "2026-06-15T11:58:48.710Z",
     "id": "7g4et9acea4"
@@ -219,9 +220,59 @@
         "qty": 1
       }
     ],
-    "status": "pending",
+    "status": "paid",
     "total": 3250,
     "createdAt": "2026-06-16T11:58:48.710Z",
     "id": "vjmz5zpwbdh"
+  },
+  "businesses/demo-clothing-store/orders/qbtzd0cbrxd": {
+    "customerId": "94772223333",
+    "items": [
+      {
+        "name": "Slim Fit Cotton Shirt",
+        "price": 3450,
+        "qty": 1
+      },
+      {
+        "name": "Linen Casual Shirt",
+        "price": 2900,
+        "qty": 1
+      },
+      {
+        "name": "Floral Summer Dress",
+        "price": 4200,
+        "qty": 1
+      },
+      {
+        "name": "Denim Jacket Classic",
+        "price": 5900,
+        "qty": 1
+      }
+    ],
+    "status": "paid",
+    "total": 16800,
+    "createdAt": "2026-06-16T12:32:01.124Z",
+    "id": "qbtzd0cbrxd"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/d1jn5jzw40f": {
+    "role": "model",
+    "content": "🛒 *Your Cart is Ready!*\n\n- Slim Fit Cotton Shirt x1 (LKR 3450)\n- Linen Casual Shirt x1 (LKR 2900)\n- Floral Summer Dress x1 (LKR 4200)\n- Denim Jacket Classic x1 (LKR 5900)\nDelivery: LKR 350\n*Total: LKR 16800*\n\nComplete secure payment here: http://localhost:3000/checkout?order=qbtzd0cbrxd&amount=16800&business=demo-clothing-store",
+    "timestamp": "2026-06-16T12:32:01.135Z",
+    "type": "text",
+    "id": "d1jn5jzw40f"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/gzu3nuz5ruq": {
+    "role": "user",
+    "content": "black t shirt thiyenawad",
+    "timestamp": "2026-06-16T12:33:32.278Z",
+    "type": "text",
+    "id": "gzu3nuz5ruq"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/7gb3081x1yj": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-16T12:33:33.502Z",
+    "type": "text",
+    "id": "7gb3081x1yj"
   }
 }
