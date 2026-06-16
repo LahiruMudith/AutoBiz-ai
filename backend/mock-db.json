@@ -109,7 +109,7 @@
     "lastMessage": "sir?",
     "lastMessageTime": "2026-06-16T13:11:23.851Z",
     "unread": false,
-    "aiActive": true,
+    "aiActive": false,
     "id": "94772223333"
   },
   "businesses/demo-clothing-store/conversations/94772223333/messages/dhxr7h687j7": {
@@ -285,7 +285,7 @@
         "qty": 1
       }
     ],
-    "status": "pending",
+    "status": "confirmed",
     "total": 3800,
     "createdAt": "2026-06-16T13:11:02.343Z",
     "id": "gd7vp7so7ob"

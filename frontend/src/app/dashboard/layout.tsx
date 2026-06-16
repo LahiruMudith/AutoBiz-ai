@@ -41,6 +41,44 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [business, setBusiness] = useState<Business | null>(null);
   const [loading, setLoading] = useState(true);
   const [collapsed, setCollapsed] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(true);
+  const [time, setTime] = useState<string>('');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      setIsDark(false);
+      document.documentElement.classList.add('theme-light');
+      document.documentElement.classList.remove('theme-dark');
+    } else {
+      setIsDark(true);
+      document.documentElement.classList.add('theme-dark');
+      document.documentElement.classList.remove('theme-light');
+    }
+  }, []);
+
+  useEffect(() => {
+    // Update live clock
+    setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }));
+    const interval = setInterval(() => {
+      setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const toggleTheme = () => {
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    if (nextDark) {
+      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('theme-dark');
+      document.documentElement.classList.remove('theme-light');
+    } else {
+      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.add('theme-light');
+      document.documentElement.classList.remove('theme-dark');
+    }
+  };
 
   useEffect(() => {
     const businessId = localStorage.getItem('selectedBusinessId');
@@ -108,7 +146,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   };
 
   return (
-    <div className="min-h-screen flex bg-slate-950 text-slate-100 overflow-hidden">
+    <div className={`min-h-screen flex overflow-hidden ${isDark ? 'theme-dark bg-slate-950 text-slate-100' : 'theme-light bg-slate-50 text-slate-900'}`}>
 
       {/* ─── Sidebar ─────────────────────────────────────────────────────────── */}
       <aside
@@ -255,9 +293,28 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Live Clock Timer */}
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-900/80 rounded-lg border border-slate-850 text-[11.5px] font-mono text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400 animate-pulse">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>{time || 'Loading...'}</span>
+            </div>
+
+            {/* Webhook Badge */}
             <span className="text-[11px] text-slate-400 font-semibold bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-850">
               ⚡ Webhook: <span className="text-indigo-400">Simulated Sandbox</span>
             </span>
+
+            {/* Theme Toggler Button */}
+            <button
+              onClick={toggleTheme}
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              className="p-2 rounded-lg bg-slate-900/80 border border-slate-850 hover:bg-slate-800 text-slate-400 hover:text-white transition-all flex items-center justify-center"
+            >
+              {isDark ? <Icons.Sun size={15} /> : <Icons.Moon size={15} />}
+            </button>
           </div>
         </header>
 
