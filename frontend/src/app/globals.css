@@ -87,12 +87,20 @@ body {
   background-color: #ffffff !important;
 }
 
+.theme-light .bg-slate-900\/80 {
+  background-color: #f1f5f9 !important;
+}
+
 .theme-light .bg-slate-900\/60 {
-  background-color: rgba(255, 255, 255, 0.7) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .theme-light .bg-slate-900\/50 {
-  background-color: rgba(255, 255, 255, 0.5) !important;
+  background-color: #ffffff !important;
+}
+
+.theme-light .bg-slate-900\/30 {
+  background-color: #f1f5f9 !important;
 }
 
 .theme-light .bg-slate-800 {
@@ -120,52 +128,56 @@ body {
 }
 
 .theme-light .bg-slate-950\/40 {
-  background-color: rgba(248, 250, 252, 0.4) !important;
+  background-color: #f8fafc !important;
 }
 
+.theme-light .text-slate-50,
 .theme-light .text-slate-100,
 .theme-light .text-white {
   color: #0f172a !important;
 }
 
 .theme-light .text-slate-200 {
-  color: #1e293b !important;
+  color: #0f172a !important;
 }
 
 .theme-light .text-slate-300 {
-  color: #334155 !important;
+  color: #1e293b !important;
 }
 
 .theme-light .text-slate-400 {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 
 .theme-light .text-slate-500 {
-  color: #64748b !important;
+  color: #475569 !important;
 }
 
 .theme-light .text-slate-600 {
-  color: #94a3b8 !important;
+  color: #64748b !important;
 }
 
 .theme-light .border-slate-900,
-.theme-light .border-slate-850,
+.theme-light .border-slate-850 {
+  border-color: #e2e8f0 !important;
+}
+
 .theme-light .border-slate-800,
 .theme-light .border-slate-700,
 .theme-light .border-slate-600 {
-  border-color: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
 }
 
 /* Specific elements & custom styling */
 .theme-light .glass-panel {
-  background: rgba(255, 255, 255, 0.75) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04) !important;
 }
 
 .theme-light .glass-card {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(226, 232, 240, 0.8) !important;
+  background: #ffffff !important;
+  border-color: rgba(226, 232, 240, 0.9) !important;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.02) !important;
 }
 
@@ -242,7 +254,7 @@ body {
 }
 
 .theme-light .hover\:text-slate-200:hover {
-  color: #1e293b !important;
+  color: #0f172a !important;
 }
 
 .theme-light .hover\:bg-slate-800\/40:hover {
@@ -262,22 +274,19 @@ body {
 }
 
 /* Fix text colors inside buttons or special badges where white text should remain white */
-.theme-light .bg-indigo-600 .text-white,
 .theme-light .bg-indigo-600,
-.theme-light .bg-emerald-600,
-.theme-light .bg-emerald-600 .text-white,
-.theme-light .bg-cyan-600,
-.theme-light .bg-cyan-600 .text-white,
-.theme-light .bg-rose-600,
-.theme-light .bg-rose-600 .text-white,
-.theme-light .bg-gradient-to-tr .text-white,
-.theme-light button.bg-indigo-600,
-.theme-light button.bg-emerald-600,
-.theme-light button.bg-cyan-600,
-.theme-light button.bg-rose-600,
 .theme-light .bg-indigo-600 *,
+.theme-light .bg-indigo-600\/80,
+.theme-light .bg-indigo-600\/80 *,
+.theme-light .bg-emerald-600,
 .theme-light .bg-emerald-600 *,
-.theme-light .bg-cyan-600 * {
+.theme-light .bg-cyan-600,
+.theme-light .bg-cyan-600 *,
+.theme-light .bg-rose-600,
+.theme-light .bg-rose-600 *,
+.theme-light .bg-rose-650,
+.theme-light .bg-rose-650 *,
+.theme-light .bg-gradient-to-tr .text-white {
   color: #ffffff !important;
 }
 
@@ -291,4 +300,64 @@ body {
 .theme-light .hover\:text-rose-400:hover {
   color: #e11d48 !important;
 }
+
+/* Badge specific styling inside light mode */
+.theme-light .bg-amber-950\/50 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+.theme-light .bg-blue-950\/50 {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+.theme-light .bg-purple-950\/50 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+}
+.theme-light .bg-cyan-950\/50 {
+  background-color: rgba(6, 182, 212, 0.15) !important;
+}
+.theme-light .bg-emerald-950\/50 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+}
+.theme-light .bg-rose-950\/50 {
+  background-color: rgba(244, 63, 94, 0.15) !important;
+}
+
+.theme-light .border-amber-900\/40 {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+.theme-light .border-blue-900\/40 {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+.theme-light .border-purple-900\/40 {
+  border-color: rgba(168, 85, 247, 0.3) !important;
+}
+.theme-light .border-cyan-900\/40 {
+  border-color: rgba(6, 182, 212, 0.3) !important;
+}
+.theme-light .border-emerald-900\/40 {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+.theme-light .border-rose-900\/40 {
+  border-color: rgba(244, 63, 94, 0.3) !important;
+}
+
+/* Custom Light Mode Inputs, Textareas, Selects & Comboboxes */
+.theme-light input,
+.theme-light textarea,
+.theme-light select,
+.theme-light [role="combobox"] {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Plan Badge active highlighted styling */
+.theme-light .bg-emerald-950\/10 {
+  background-color: rgba(16, 185, 129, 0.08) !important;
+}
+
 

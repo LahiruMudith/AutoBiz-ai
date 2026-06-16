@@ -106,8 +106,8 @@
   },
   "businesses/demo-clothing-store/conversations/94772223333": {
     "customerId": "94772223333",
-    "lastMessage": "sir?",
-    "lastMessageTime": "2026-06-16T13:11:23.851Z",
+    "lastMessage": "🛒 *Your Cart is Ready!*\n\n• Slim Fit Cotton Shirt ×1 — LKR 3,450\n🚚 Delivery: LKR 350\n💳 *Total: LKR 3,800*\n\nComplete payment: http://localhost:3000/checkout?order=dceimwak5pb&amount=3800&business=demo-clothing-store",
+    "lastMessageTime": "2026-06-16T14:58:02.924Z",
     "unread": false,
     "aiActive": false,
     "id": "94772223333"
@@ -310,5 +310,33 @@
     "timestamp": "2026-06-16T13:11:23.841Z",
     "type": "text",
     "id": "ss2q1oo4qtd"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/ipnovz7hw1": {
+    "role": "model",
+    "content": "Verification check: Outgoing text contrast",
+    "timestamp": "2026-06-16T14:11:01.649Z",
+    "type": "text",
+    "id": "ipnovz7hw1"
+  },
+  "businesses/demo-clothing-store/orders/dceimwak5pb": {
+    "customerId": "94772223333",
+    "items": [
+      {
+        "name": "Slim Fit Cotton Shirt",
+        "price": 3450,
+        "qty": 1
+      }
+    ],
+    "status": "pending",
+    "total": 3800,
+    "createdAt": "2026-06-16T14:58:02.911Z",
+    "id": "dceimwak5pb"
+  },
+  "businesses/demo-clothing-store/conversations/94772223333/messages/jot45kdr3uj": {
+    "role": "model",
+    "content": "🛒 *Your Cart is Ready!*\n\n• Slim Fit Cotton Shirt ×1 — LKR 3,450\n🚚 Delivery: LKR 350\n💳 *Total: LKR 3,800*\n\nComplete payment: http://localhost:3000/checkout?order=dceimwak5pb&amount=3800&business=demo-clothing-store",
+    "timestamp": "2026-06-16T14:58:02.923Z",
+    "type": "text",
+    "id": "jot45kdr3uj"
   }
 }
