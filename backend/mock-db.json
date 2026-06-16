@@ -207,7 +207,7 @@
         "qty": 2
       }
     ],
-    "status": "paid",
+    "status": "delivered",
     "total": 12150,
     "createdAt": "2026-06-15T11:58:48.710Z",
     "id": "7g4et9acea4"
@@ -221,7 +221,7 @@
         "qty": 1
       }
     ],
-    "status": "paid",
+    "status": "delivered",
     "total": 3250,
     "createdAt": "2026-06-16T11:58:48.710Z",
     "id": "vjmz5zpwbdh"
@@ -250,7 +250,7 @@
         "qty": 1
       }
     ],
-    "status": "paid",
+    "status": "delivered",
     "total": 16800,
     "createdAt": "2026-06-16T12:32:01.124Z",
     "id": "qbtzd0cbrxd"

@@ -15,11 +15,32 @@ interface Business {
   };
 }
 
+// ─── Collapse toggle icon ────────────────────────────────────────────────────
+function CollapseIcon({ collapsed }: { collapsed: boolean }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={14}
+      height={14}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ transform: collapsed ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
+    >
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  );
+}
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [business, setBusiness] = useState<Business | null>(null);
   const [loading, setLoading] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     const businessId = localStorage.getItem('selectedBusinessId');
@@ -70,40 +91,66 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }
 
   const menuItems = [
-    { name: 'Overview', href: '/dashboard', icon: 'Home' as const },
-    { name: 'Inbox', href: '/dashboard/inbox', icon: 'MessageSquare' as const },
-    { name: 'Products', href: '/dashboard/products', icon: 'Package' as const },
-    { name: 'Customers', href: '/dashboard/customers', icon: 'Users' as const },
-    { name: 'Orders', href: '/dashboard/orders', icon: 'ShoppingBag' as const },
-    { name: 'Settings', href: '/dashboard/settings', icon: 'Settings' as const },
+    { name: 'Overview',   href: '/dashboard',           icon: 'Home'          as const },
+    { name: 'Inbox',      href: '/dashboard/inbox',     icon: 'MessageSquare' as const },
+    { name: 'Products',   href: '/dashboard/products',  icon: 'Package'       as const },
+    { name: 'Customers',  href: '/dashboard/customers', icon: 'Users'         as const },
+    { name: 'Orders',     href: '/dashboard/orders',    icon: 'ShoppingBag'   as const },
+    { name: 'Settings',   href: '/dashboard/settings',  icon: 'Settings'      as const },
   ];
 
   const planColor = (plan: string) => {
     switch (plan?.toLowerCase()) {
       case 'enterprise': return 'bg-purple-950 text-purple-300 border-purple-500/30';
-      case 'business': return 'bg-indigo-950 text-indigo-300 border-indigo-500/30';
-      default: return 'bg-slate-800 text-slate-300 border-slate-700';
+      case 'business':   return 'bg-indigo-950 text-indigo-300 border-indigo-500/30';
+      default:           return 'bg-slate-800 text-slate-300 border-slate-700';
     }
   };
 
   return (
     <div className="min-h-screen flex bg-slate-950 text-slate-100 overflow-hidden">
-      {/* Sidebar */}
-      <aside className="w-64 bg-slate-900/60 border-r border-slate-900 backdrop-blur-xl flex flex-col justify-between p-4 z-20 shrink-0">
-        <div className="flex flex-col gap-8">
+
+      {/* ─── Sidebar ─────────────────────────────────────────────────────────── */}
+      <aside
+        className="relative flex flex-col justify-between bg-slate-900/60 border-r border-slate-900 backdrop-blur-xl z-20 shrink-0 overflow-hidden"
+        style={{
+          width: collapsed ? '68px' : '240px',
+          transition: 'width 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+      >
+        {/* ── Toggle Button (pinned to right edge) ───────────────────────────── */}
+        <button
+          onClick={() => setCollapsed(v => !v)}
+          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          className="absolute top-4 -right-3 z-30 w-6 h-6 rounded-full bg-slate-800 hover:bg-indigo-600 border border-slate-700 hover:border-indigo-500 text-slate-400 hover:text-white flex items-center justify-center shadow-lg transition-all"
+        >
+          <CollapseIcon collapsed={collapsed} />
+        </button>
+
+        {/* ── Top content ───────────────────────────────────────────────────── */}
+        <div className="flex flex-col gap-6 p-3 pt-4">
+
           {/* Logo / Brand */}
-          <div className="flex items-center gap-3 px-2 pt-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-emerald-400 flex items-center justify-center font-bold text-white text-sm shadow-md">
+          <div className="flex items-center gap-3 px-1 pt-1 overflow-hidden">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-emerald-400 flex items-center justify-center font-bold text-white text-sm shadow-md flex-shrink-0">
               A
             </div>
-            <div>
+            <div
+              className="overflow-hidden transition-all"
+              style={{
+                opacity: collapsed ? 0 : 1,
+                maxWidth: collapsed ? 0 : 200,
+                transition: 'opacity 0.2s ease, max-width 0.3s ease',
+                whiteSpace: 'nowrap',
+              }}
+            >
               <h2 className="font-extrabold text-sm tracking-tight text-white leading-none">AutoBiz AI</h2>
               <span className="text-[9px] text-emerald-400 font-bold uppercase tracking-wider">WORKSPACE</span>
             </div>
           </div>
 
           {/* Navigation Menu */}
-          <nav className="flex flex-col gap-1.5">
+          <nav className="flex flex-col gap-1">
             {menuItems.map((item) => {
               const isActive = pathname === item.href;
               const Icon = Icons[item.icon];
@@ -111,27 +158,56 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+                  title={collapsed ? item.name : undefined}
+                  className={`flex items-center gap-3 rounded-xl text-xs font-semibold tracking-wide transition-all overflow-hidden group ${
                     isActive
-                      ? 'bg-gradient-to-r from-indigo-600/35 to-indigo-600/10 text-indigo-300 border-l-2 border-indigo-500 font-bold pl-4'
+                      ? 'bg-gradient-to-r from-indigo-600/35 to-indigo-600/10 text-indigo-300 border-l-2 border-indigo-500 font-bold'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
+                  style={{
+                    padding: collapsed ? '10px 18px' : '10px 14px',
+                    paddingLeft: isActive
+                      ? (collapsed ? '16px' : '14px')
+                      : (collapsed ? '18px' : '14px'),
+                    transition: 'padding 0.3s ease',
+                  }}
                 >
-                  <Icon size={16} className={isActive ? 'text-indigo-400' : 'text-slate-400'} />
-                  {item.name}
+                  <Icon
+                    size={16}
+                    className={`flex-shrink-0 transition-colors ${isActive ? 'text-indigo-400' : 'text-slate-400 group-hover:text-slate-300'}`}
+                  />
+                  <span
+                    className="transition-all overflow-hidden whitespace-nowrap"
+                    style={{
+                      opacity: collapsed ? 0 : 1,
+                      maxWidth: collapsed ? 0 : 200,
+                      transition: 'opacity 0.2s ease, max-width 0.3s ease',
+                    }}
+                  >
+                    {item.name}
+                  </span>
                 </Link>
               );
             })}
           </nav>
         </div>
 
-        {/* Workspace Footer Profile */}
-        <div className="flex flex-col gap-4 border-t border-slate-900 pt-4">
-          <div className="flex items-center gap-3 px-2">
-            <div className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700 text-sm font-bold text-slate-200 uppercase">
+        {/* ── Footer: Workspace Info + Logout ───────────────────────────────── */}
+        <div className="flex flex-col gap-3 border-t border-slate-900 p-3 pb-4">
+          {/* Business avatar + name row */}
+          <div className="flex items-center gap-3 overflow-hidden px-1">
+            <div className="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700 text-sm font-bold text-slate-200 uppercase flex-shrink-0">
               {business?.name[0]}
             </div>
-            <div className="min-w-0 flex-1">
+            <div
+              className="min-w-0 overflow-hidden transition-all"
+              style={{
+                opacity: collapsed ? 0 : 1,
+                maxWidth: collapsed ? 0 : 180,
+                transition: 'opacity 0.2s ease, max-width 0.3s ease',
+                whiteSpace: 'nowrap',
+              }}
+            >
               <p className="text-xs font-bold text-white truncate leading-none mb-1">
                 {business?.name}
               </p>
@@ -141,16 +217,33 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
           </div>
 
+          {/* Switch Workspace button */}
           <button
             onClick={handleLogout}
-            className="flex items-center justify-center gap-2 px-3 py-2 bg-slate-800/30 hover:bg-rose-950/20 border border-slate-800 hover:border-rose-900/30 rounded-xl text-[11px] font-bold text-slate-400 hover:text-rose-400 transition-all"
+            title={collapsed ? 'Switch Workspace' : undefined}
+            className="flex items-center justify-center gap-2 py-2 px-2 bg-slate-800/30 hover:bg-rose-950/20 border border-slate-800 hover:border-rose-900/30 rounded-xl text-[11px] font-bold text-slate-400 hover:text-rose-400 transition-all overflow-hidden"
           >
-            Switch Workspace
+            {/* Simple door/exit icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            <span
+              className="overflow-hidden whitespace-nowrap transition-all"
+              style={{
+                opacity: collapsed ? 0 : 1,
+                maxWidth: collapsed ? 0 : 160,
+                transition: 'opacity 0.2s ease, max-width 0.3s ease',
+              }}
+            >
+              Switch Workspace
+            </span>
           </button>
         </div>
       </aside>
 
-      {/* Main Content Workspace */}
+      {/* ─── Main Content ─────────────────────────────────────────────────────── */}
       <div className="flex-1 flex flex-col min-w-0 relative">
         {/* Topbar */}
         <header className="h-16 border-b border-slate-900 bg-slate-950/50 backdrop-blur-xl flex items-center justify-between px-6 z-10">
