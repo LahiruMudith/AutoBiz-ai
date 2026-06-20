@@ -375,10 +375,37 @@ export default function Inbox() {
   const [businessId, setBusinessId] = useState('');
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const lastScrollChatId = useRef<string | null>(null);
+  const lastMessagesHash = useRef<string>('');
 
   const scrollToBottom = () => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-  useEffect(() => { scrollToBottom(); }, [messages]);
+  useEffect(() => {
+    if (!activeChat) return;
+
+    const lastMsg = messages[messages.length - 1];
+    const messagesHash = `${messages.length}-${lastMsg?.id || ''}-${lastMsg?.content || ''}-${lastMsg?.timestamp || ''}`;
+
+    const isNewChat = activeChat.id !== lastScrollChatId.current;
+    const isNewMessage = messagesHash !== lastMessagesHash.current;
+
+    if (isNewChat) {
+      scrollToBottom();
+      lastScrollChatId.current = activeChat.id;
+      lastMessagesHash.current = messagesHash;
+    } else if (isNewMessage) {
+      const container = chatContainerRef.current;
+      if (container) {
+        const isNearBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 150;
+        if (isNearBottom) {
+          scrollToBottom();
+        }
+      }
+      lastMessagesHash.current = messagesHash;
+    }
+  }, [messages, activeChat]);
 
   // Initial loading
   useEffect(() => {
@@ -517,6 +544,7 @@ export default function Inbox() {
     const textToSend = inputText;
     setInputText('');
     setMessages(prev => [...prev, { id: Math.random().toString(), role: 'model', content: textToSend, timestamp: new Date().toISOString(), type: 'text' }]);
+    setTimeout(scrollToBottom, 50);
     try {
       await fetch(`http://localhost:5000/api/businesses/${businessId}/chats/${activeChat.id}/send`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: textToSend }),
@@ -532,6 +560,7 @@ export default function Inbox() {
     const textToSend = simText;
     setSimText('');
     setMessages(prev => [...prev, { id: Math.random().toString(), role: 'user', content: textToSend, timestamp: new Date().toISOString(), type: 'text' }]);
+    setTimeout(scrollToBottom, 50);
     try {
       await fetch(`http://localhost:5000/api/webhook/simulate/incoming`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -706,7 +735,7 @@ export default function Inbox() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+            <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
               {loadingMessages ? (
                 <div className="flex justify-center items-center h-full">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-indigo-400" />

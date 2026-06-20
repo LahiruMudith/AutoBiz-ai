@@ -109,7 +109,7 @@
     "lastMessage": "🛒 *Your Cart is Ready!*\n\n• Slim Fit Cotton Shirt ×1 — LKR 3,450\n🚚 Delivery: LKR 350\n💳 *Total: LKR 3,800*\n\nComplete payment: http://localhost:3000/checkout?order=dceimwak5pb&amount=3800&business=demo-clothing-store",
     "lastMessageTime": "2026-06-16T14:58:02.924Z",
     "unread": false,
-    "aiActive": false,
+    "aiActive": true,
     "id": "94772223333"
   },
   "businesses/demo-clothing-store/conversations/94772223333/messages/dhxr7h687j7": {
