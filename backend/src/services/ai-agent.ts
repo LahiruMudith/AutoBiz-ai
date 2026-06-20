@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { db } from '../config/firebase';
 import * as dotenv from 'dotenv';
 
@@ -10,11 +10,10 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 let genAI: any = null;
 if (GEMINI_API_KEY) {
   try {
-    // Note: The newer SDK version of GoogleGenAI or @google/generative-ai
-    const { GoogleGenAI } = require('@google/generative-ai');
-    genAI = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+    const { GoogleGenerativeAI } = require('@google/generative-ai');
+    genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
   } catch (e) {
-    console.warn('Could not initialize GoogleGenAI. Will fallback to simulated AI response.');
+    console.warn('Could not initialize GoogleGenerativeAI. Will fallback to simulated AI response.');
   }
 }
 
