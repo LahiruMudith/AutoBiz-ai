@@ -6,6 +6,7 @@ import { db } from './config/firebase';
 import webhookRouter from './routes/webhook';
 import { generatePayHereParams } from './services/payhere';
 import { sendWhatsAppMessage } from './services/whatsapp';
+import { addSSEClient } from './services/sse';
 
 dotenv.config();
 
@@ -25,6 +26,16 @@ app.use((req, res, next) => {
 
 // Register Webhook routes
 app.use('/api/webhook', webhookRouter);
+
+// SSE connection endpoint for real-time dashboard events
+app.get('/api/events/:businessId', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.flushHeaders();
+  addSSEClient(req.params.businessId, res);
+});
 
 // -------------------------------------------------------------
 // Seed Sample Data Helper
@@ -450,14 +461,17 @@ app.get('/api/businesses/:businessId', async (req, res) => {
 // Update settings
 app.put('/api/businesses/:businessId/settings', async (req, res) => {
   const { businessId } = req.params;
-  const { welcomeMessage, returnPolicy, deliveryFee, faqs, name } = req.body;
+  const { welcomeMessage, returnPolicy, deliveryFee, faqs, name, whatsappNumber, whatsappToken, phoneNumberId } = req.body;
   try {
     await db.collection('businesses').doc(businessId).set({
       name,
       welcomeMessage,
       returnPolicy,
       deliveryFee: Number(deliveryFee),
-      faqs
+      faqs,
+      whatsappNumber: whatsappNumber || '',
+      whatsappToken: whatsappToken || '',
+      phoneNumberId: phoneNumberId || ''
     }, { merge: true });
     res.json({ success: true });
   } catch (err: any) {
