@@ -1,5 +1,6 @@
 import { db } from '../config/firebase';
 import { generateAIResponse } from './ai-agent';
+import { broadcastSSE } from './sse';
 
 const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN || '';
 const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID || '';
@@ -33,15 +34,38 @@ export async function sendWhatsAppMessage(
     unread: false
   }, { merge: true });
 
-  // 2. If configuration exists, send to actual Meta API
-  if (WHATSAPP_TOKEN && PHONE_NUMBER_ID) {
+  // Broadcast update to SSE clients
+  broadcastSSE(businessId, 'chat_updated', { customerId: conversationId });
+
+  // 2. Get business configuration (database config overrides global env variables)
+  let token = WHATSAPP_TOKEN;
+  let phoneId = PHONE_NUMBER_ID;
+
+  try {
+    const bizRef = db.collection('businesses').doc(businessId);
+    const bizSnap = await bizRef.get();
+    if (bizSnap.exists) {
+      const bizData = bizSnap.data();
+      if (bizData?.whatsappToken) {
+        token = bizData.whatsappToken;
+      }
+      if (bizData?.phoneNumberId) {
+        phoneId = bizData.phoneNumberId;
+      }
+    }
+  } catch (err) {
+    console.error('Error fetching business WhatsApp config from DB:', err);
+  }
+
+  // 3. If configuration exists, send to actual Meta API
+  if (token && phoneId) {
     try {
       const response = await fetch(
-        `https://graph.facebook.com/v19.0/${PHONE_NUMBER_ID}/messages`,
+        `https://graph.facebook.com/v19.0/${phoneId}/messages`,
         {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${WHATSAPP_TOKEN}`,
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -103,6 +127,9 @@ export async function handleIncomingMessage(
     unread: true,
     aiActive
   }, { merge: true });
+
+  // Broadcast update to SSE clients
+  broadcastSSE(businessId, 'chat_updated', { customerId: conversationId });
 
   // 2. Trigger AI Response if enabled
   if (aiActive) {

@@ -27,6 +27,8 @@ if (!useSupabase) {
 // Field mappings between JS camelCase and Postgres snake_case
 const FIELD_MAPS: Record<string, string> = {
   whatsappNumber: 'whatsapp_number',
+  whatsappToken: 'whatsapp_token',
+  phoneNumberId: 'phone_number_id',
   welcomeMessage: 'welcome_message',
   returnPolicy: 'return_policy',
   deliveryFee: 'delivery_fee',
@@ -72,7 +74,7 @@ function toSnake(obj: any): any {
 
 // Table columns for filtering out extra fields
 const TABLE_COLUMNS: Record<string, string[]> = {
-  businesses: ['id', 'name', 'type', 'whatsapp_number', 'welcome_message', 'return_policy', 'delivery_fee', 'faqs', 'subscription', 'created_at'],
+  businesses: ['id', 'name', 'type', 'whatsapp_number', 'whatsapp_token', 'phone_number_id', 'welcome_message', 'return_policy', 'delivery_fee', 'faqs', 'subscription', 'created_at'],
   products: ['id', 'business_id', 'name', 'price', 'stock', 'category', 'description', 'images'],
   customers: ['id', 'business_id', 'name', 'phone', 'language', 'tags', 'total_orders', 'total_spent'],
   conversations: ['id', 'business_id', 'customer_id', 'last_message', 'last_message_time', 'unread', 'ai_active'],

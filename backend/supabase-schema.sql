@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS businesses (
   name TEXT NOT NULL,
   type TEXT,
   whatsapp_number TEXT,
+  whatsapp_token TEXT,
+  phone_number_id TEXT,
   welcome_message TEXT,
   return_policy TEXT,
   delivery_fee NUMERIC DEFAULT 0,

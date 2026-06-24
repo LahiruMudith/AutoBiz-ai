@@ -2,7 +2,7 @@
   "businesses/demo-clothing-store": {
     "name": "StyleHub Clothing",
     "type": "Clothing Store",
-    "whatsappNumber": "+94771234567",
+    "whatsappNumber": "+94777818159",
     "createdAt": "2026-06-16T11:58:48.554Z",
     "subscription": {
       "plan": "starter",
@@ -27,7 +27,9 @@
         "answer": "We are an online-only store based in Colombo, Sri Lanka."
       }
     ],
-    "id": "demo-clothing-store"
+    "id": "demo-clothing-store",
+    "whatsappToken": "",
+    "phoneNumberId": "1209898525536412"
   },
   "businesses/demo-clothing-store/products/w1b6ol9hnwh": {
     "name": "Slim Fit Cotton Shirt",
@@ -338,5 +340,252 @@
     "timestamp": "2026-06-16T14:58:02.923Z",
     "type": "text",
     "id": "jot45kdr3uj"
+  },
+  "businesses/demo-clothing-store/conversations/94771234567/messages/p7u87s2evj": {
+    "role": "user",
+    "content": "Hello from custom number test",
+    "timestamp": "2026-06-23T11:43:40.345Z",
+    "type": "text",
+    "id": "p7u87s2evj"
+  },
+  "businesses/demo-clothing-store/conversations/94771234567": {
+    "customerId": "94771234567",
+    "lastMessage": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "lastMessageTime": "2026-06-23T11:43:41.569Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94771234567"
+  },
+  "businesses/demo-clothing-store/conversations/94771234567/messages/yy8mi9n8bj": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-23T11:43:41.568Z",
+    "type": "text",
+    "id": "yy8mi9n8bj"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/trutbiabvas": {
+    "role": "user",
+    "content": "Hi",
+    "timestamp": "2026-06-24T10:45:56.474Z",
+    "type": "text",
+    "id": "trutbiabvas"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355": {
+    "customerId": "94703717355",
+    "lastMessage": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "lastMessageTime": "2026-06-24T11:00:48.013Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94703717355"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/2yxddr9afe4": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T10:45:57.696Z",
+    "type": "text",
+    "id": "2yxddr9afe4"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/kspe9oqmjx": {
+    "role": "user",
+    "content": "Hi",
+    "timestamp": "2026-06-24T10:46:30.321Z",
+    "type": "text",
+    "id": "kspe9oqmjx"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/dz0hqhl7mcw": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T10:46:31.550Z",
+    "type": "text",
+    "id": "dz0hqhl7mcw"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/5bxw28nawc": {
+    "role": "user",
+    "content": "Hi",
+    "timestamp": "2026-06-24T10:47:56.475Z",
+    "type": "text",
+    "id": "5bxw28nawc"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/mwo0pxqk2f": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T10:47:57.705Z",
+    "type": "text",
+    "id": "mwo0pxqk2f"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/y3tm1992ogb": {
+    "role": "user",
+    "content": "hi",
+    "timestamp": "2026-06-24T10:48:39.455Z",
+    "type": "text",
+    "id": "y3tm1992ogb"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256": {
+    "customerId": "94761298256",
+    "lastMessage": "Thank you for messaging StyleHub Clothing. Our team will review your message and respond shortly.",
+    "lastMessageTime": "2026-06-24T11:07:09.223Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94761298256"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/485f2avvug6": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T10:48:40.677Z",
+    "type": "text",
+    "id": "485f2avvug6"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/o9t8bqc5tf": {
+    "role": "user",
+    "content": "Mee",
+    "timestamp": "2026-06-24T10:51:44.480Z",
+    "type": "text",
+    "id": "o9t8bqc5tf"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061": {
+    "customerId": "94755889061",
+    "lastMessage": "mk",
+    "lastMessageTime": "2026-06-24T10:53:30.389Z",
+    "unread": false,
+    "aiActive": true,
+    "id": "94755889061"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/wu8sla6au0b": {
+    "role": "model",
+    "content": "Thank you for messaging StyleHub Clothing. Our team will review your message and respond shortly.",
+    "timestamp": "2026-06-24T10:51:45.711Z",
+    "type": "text",
+    "id": "wu8sla6au0b"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/5xriyamx1jm": {
+    "role": "model",
+    "content": "hello patoo",
+    "timestamp": "2026-06-24T10:52:00.631Z",
+    "type": "text",
+    "id": "5xriyamx1jm"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/dvxbvr0i8vi": {
+    "role": "user",
+    "content": "Hiii",
+    "timestamp": "2026-06-24T10:52:11.402Z",
+    "type": "text",
+    "id": "dvxbvr0i8vi"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/si7ncg0chq": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T10:52:12.629Z",
+    "type": "text",
+    "id": "si7ncg0chq"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/u9q0z801pi": {
+    "role": "user",
+    "content": "Deliver krnna dwas kochchrk ynwd",
+    "timestamp": "2026-06-24T10:52:41.291Z",
+    "type": "text",
+    "id": "u9q0z801pi"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/1t9qtkhgv8m": {
+    "role": "user",
+    "content": "Deliver krnna dwas kochchrk ynwd",
+    "timestamp": "2026-06-24T10:52:54.800Z",
+    "type": "text",
+    "id": "1t9qtkhgv8m"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/m5zqwj75wx9": {
+    "role": "model",
+    "content": "Thank you for messaging StyleHub Clothing. Our team will review your message and respond shortly.",
+    "timestamp": "2026-06-24T10:52:56.031Z",
+    "type": "text",
+    "id": "m5zqwj75wx9"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/xo432uqbqt": {
+    "role": "model",
+    "content": "hi patto",
+    "timestamp": "2026-06-24T10:53:30.367Z",
+    "type": "text",
+    "id": "xo432uqbqt"
+  },
+  "businesses/demo-clothing-store/conversations/94755889061/messages/dc1pxmecyf": {
+    "role": "model",
+    "content": "mk",
+    "timestamp": "2026-06-24T10:53:30.388Z",
+    "type": "text",
+    "id": "dc1pxmecyf"
+  },
+  "businesses/demo-clothing-store/orders/v3qw1tr6gcs": {
+    "customerId": "94761298256",
+    "items": [
+      {
+        "name": "Slim Fit Cotton Shirt",
+        "price": 3450,
+        "qty": 1
+      },
+      {
+        "name": "Linen Casual Shirt",
+        "price": 2900,
+        "qty": 1
+      }
+    ],
+    "status": "pending",
+    "total": 6700,
+    "createdAt": "2026-06-24T10:54:14.838Z",
+    "id": "v3qw1tr6gcs"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/r3og8art8tg": {
+    "role": "model",
+    "content": "🛒 *Your Cart is Ready!*\n\n• Slim Fit Cotton Shirt ×1 — LKR 3,450\n• Linen Casual Shirt ×1 — LKR 2,900\n🚚 Delivery: LKR 350\n💳 *Total: LKR 6,700*\n\nComplete payment: http://localhost:3000/checkout?order=v3qw1tr6gcs&amount=6700&business=demo-clothing-store",
+    "timestamp": "2026-06-24T10:54:14.844Z",
+    "type": "text",
+    "id": "r3og8art8tg"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/5k3nyp9g19j": {
+    "role": "model",
+    "content": "hi",
+    "timestamp": "2026-06-24T10:59:24.539Z",
+    "type": "text",
+    "id": "5k3nyp9g19j"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/00saz7gjxlxea": {
+    "role": "user",
+    "content": "hi",
+    "timestamp": "2026-06-24T10:59:46.234Z",
+    "type": "text",
+    "id": "00saz7gjxlxea"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/j0gp84lwhm": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T10:59:47.458Z",
+    "type": "text",
+    "id": "j0gp84lwhm"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/ujadj8knu7o": {
+    "role": "user",
+    "content": "Hi",
+    "timestamp": "2026-06-24T11:00:46.793Z",
+    "type": "text",
+    "id": "ujadj8knu7o"
+  },
+  "businesses/demo-clothing-store/conversations/94703717355/messages/7zuznkgruhb": {
+    "role": "model",
+    "content": "Hi! Welcome to StyleHub Clothing 🌟. I am your AI Sales Assistant. Ask me about our latest shirts, frocks, or return policy!",
+    "timestamp": "2026-06-24T11:00:48.013Z",
+    "type": "text",
+    "id": "7zuznkgruhb"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/ln2gvp4mb3d": {
+    "role": "user",
+    "content": "Do you deliver island-wide?",
+    "timestamp": "2026-06-24T11:07:07.996Z",
+    "type": "text",
+    "id": "ln2gvp4mb3d"
+  },
+  "businesses/demo-clothing-store/conversations/94761298256/messages/li102ahx8nc": {
+    "role": "model",
+    "content": "Thank you for messaging StyleHub Clothing. Our team will review your message and respond shortly.",
+    "timestamp": "2026-06-24T11:07:09.222Z",
+    "type": "text",
+    "id": "li102ahx8nc"
   }
 }

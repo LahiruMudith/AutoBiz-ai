@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { handleIncomingMessage } from '../services/whatsapp';
 import { processSuccessfulPayment } from '../services/payhere';
+import { db } from '../config/firebase';
 
 const router = Router();
 
@@ -38,11 +39,42 @@ router.post('/whatsapp', async (req: Request, res: Response) => {
         const text = message.text?.body || '';
         const type = message.type || 'text';
 
-        // We need to look up which business this incoming phone number matches
-        // For Meta integration, a business's settings has a phone number ID
-        // Let's find the business that has metadata matching: phone_number_id
-        // (Simplified for now or matches a test businessId via environment / mapping)
-        const businessId = process.env.DEFAULT_BUSINESS_ID || 'demo-clothing-store';
+        // Find which business this message belongs to based on display_phone_number / phone_number_id
+        const displayPhoneNumber = value?.metadata?.display_phone_number;
+        const incomingPhoneId = value?.metadata?.phone_number_id;
+        
+        let businessId = process.env.DEFAULT_BUSINESS_ID || 'demo-clothing-store';
+
+        if (displayPhoneNumber || incomingPhoneId) {
+          try {
+            const normalizedDisplay = displayPhoneNumber ? displayPhoneNumber.replace(/\D/g, '') : '';
+            const businessesSnap = await db.collection('businesses').get();
+            const foundBiz = businessesSnap.docs.find((doc: any) => {
+              const data = doc.data();
+              if (data) {
+                // Match by phone number ID first if available
+                if (incomingPhoneId && data.phoneNumberId === incomingPhoneId) {
+                  return true;
+                }
+                // Fallback to match by whatsapp number
+                if (normalizedDisplay && data.whatsappNumber) {
+                  const normBizNum = data.whatsappNumber.replace(/\D/g, '');
+                  return normBizNum === normalizedDisplay;
+                }
+              }
+              return false;
+            });
+
+            if (foundBiz) {
+              businessId = foundBiz.id;
+              console.log(`[Webhook Dynamic Routing] Matched business ID: ${businessId} for display phone: ${displayPhoneNumber}, ID: ${incomingPhoneId}`);
+            } else {
+              console.log(`[Webhook Dynamic Routing] No matching business found for phone: ${displayPhoneNumber}, ID: ${incomingPhoneId}. Using default business: ${businessId}`);
+            }
+          } catch (e) {
+            console.error('[Webhook Dynamic Routing] Error querying business matching number:', e);
+          }
+        }
         
         await handleIncomingMessage(businessId, from, text, type);
       }
